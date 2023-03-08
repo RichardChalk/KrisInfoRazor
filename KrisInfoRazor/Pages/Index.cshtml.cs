@@ -16,7 +16,7 @@ namespace KrisInfoRazor.Pages
             _logger = logger;
         }
 
-        public List<KrisInfoResponse> Messages { get; set; } = new List<KrisInfoResponse>();
+        public List<KrisInfoResponse> Messages { get; set; }
         public async Task<IActionResult> OnGet()
         {
             using var client = new HttpClient();

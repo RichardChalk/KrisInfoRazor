@@ -1,0 +1,39 @@
+﻿@page
+@model KrisInfoRazor.Pages.SingleMessageModel
+@{
+}
+
+<div class="text-center">
+    <h1 class="display-4">Välkommen</h1>
+
+</div>
+
+<div class="justify-content-center">
+    <div class="card text-center" style="width: 20rem;">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Message.Headline</h5>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">Id: @Model.Message.Identifier</h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-subtitle mb-2 text-muted">@Model.Message.Area[0].Description</h6>
+                    </div>
+                </div>
+            </div>
+            <p class="card-text">@Model.Message.PushMessage</p>
+            <a href="@Model.Message.Links[0].Url" target="_blank" class="card-link">URL</a>
+            <a href="https://www.trafikverket.se/resa-och-trafik/trafikinformation/" target="_blank" class="card-link">Trafikinfo</a>
+
+            <a asp-page="/Index"
+               class="btn btn-secondary d-block m-3 w-80">
+                Back
+            </a>
+
+        </div>
+    </div>
+</div>
+
+
+
