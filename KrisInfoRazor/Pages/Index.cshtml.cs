@@ -17,7 +17,7 @@ namespace KrisInfoRazor.Pages
         }
 
         public List<KrisInfoResponse> Messages { get; set; } = new List<KrisInfoResponse>();
-        public async void OnGet()
+        public async Task<IActionResult> OnGet()
         {
             using var client = new HttpClient();
             client.BaseAddress = new Uri("https://api.krisinformation.se");
@@ -32,6 +32,7 @@ namespace KrisInfoRazor.Pages
                     // Gör om strängen till vår egen skapade datatyp - KrisInfoResponse
                     Messages = JsonConvert.DeserializeObject<List<KrisInfoResponse>>(responseBody);
             }
+            return Page();
         }
     }
 }
