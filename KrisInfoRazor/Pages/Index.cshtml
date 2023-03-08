@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Krisinformation";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Välkommen</h1>
+    <h1>Alla Meddelanden</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Message</th>
+                <th scope="col">Published</th>
+                <th scope="col">Country</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var msg in Model.Messages)
+            {
+                <tr>
+                    <td>@msg.Identifier</td>
+                    <td>@msg.PushMessage</td>
+                    <td>@msg.Published</td>
+                    <td>@msg.Area[0].Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
