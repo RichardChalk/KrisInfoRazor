@@ -9,7 +9,7 @@ namespace KrisInfoRazor.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        
+
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -24,13 +24,13 @@ namespace KrisInfoRazor.Pages
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = await client.GetAsync("/v3/news");
+            HttpResponseMessage response = await client.GetAsync("/v3/news?days=60");
             if (response.IsSuccessStatusCode)
             {
                 // Gör om responsen till en sträng
                 var responseBody = await response.Content.ReadAsStringAsync();
-                    // Gör om strängen till vår egen skapade datatyp - KrisInfoResponse
-                    Messages = JsonConvert.DeserializeObject<List<KrisInfoResponse>>(responseBody);
+                // Gör om strängen till vår egen skapade datatyp - KrisInfoResponse
+                Messages = JsonConvert.DeserializeObject<List<KrisInfoResponse>>(responseBody);
             }
             return Page();
         }
