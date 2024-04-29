@@ -17,9 +17,12 @@
                     <div class="col">
                         <h6 class="card-subtitle mb-2 text-muted">Id: @Model.Message.Identifier</h6>
                     </div>
-                    <div class="col">
-                        <h6 class="card-subtitle mb-2 text-muted">@Model.Message.Area[0].Description</h6>
-                    </div>
+                    @if (Model.Message.Area.Count > 0)
+                    {
+                        <div class="col">
+                            <h6 class="card-subtitle mb-2 text-muted">@Model.Message.Area[0].Description</h6>
+                        </div>
+                    }
                 </div>
             </div>
             <p class="card-text">@Model.Message.PushMessage</p>

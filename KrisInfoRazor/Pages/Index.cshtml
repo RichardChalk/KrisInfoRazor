@@ -27,7 +27,10 @@
                 <td>@msg.Identifier</td>
                 <td>@msg.Headline</td>
                 <td>@msg.Published.ToShortDateString()</td>
-                <td>@msg.Area[0].Description</td>
+                @if (@msg.Area.Count>0)
+                {
+                    <td>@msg.Area[0].Description</td>
+                }
                 <td>
                     <a asp-page="/SingleMessage"
                        asp-route-messId="@msg.Identifier"

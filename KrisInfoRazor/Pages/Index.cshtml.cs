@@ -24,7 +24,7 @@ namespace KrisInfoRazor.Pages
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = await client.GetAsync("/v3/news?days=60");
+            HttpResponseMessage response = await client.GetAsync("/v3/news?days=90");
             if (response.IsSuccessStatusCode)
             {
                 // Gör om responsen till en sträng
