@@ -31,6 +31,10 @@
                 {
                     <td>@msg.Area[0].Description</td>
                 }
+                else
+                {
+                    <td>Ingen information</td>
+                }
                 <td>
                     <a asp-page="/SingleMessage"
                        asp-route-messId="@msg.Identifier"

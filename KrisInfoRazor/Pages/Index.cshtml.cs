@@ -19,6 +19,7 @@ namespace KrisInfoRazor.Pages
         public List<KrisInfoResponse> Messages { get; set; }
         public async Task<IActionResult> OnGet()
         {
+            // Vi ska egenligen inte ha Business logic... Service anyone?
             using var client = new HttpClient();
             client.BaseAddress = new Uri("https://api.krisinformation.se");
             client.DefaultRequestHeaders.Accept.Clear();
